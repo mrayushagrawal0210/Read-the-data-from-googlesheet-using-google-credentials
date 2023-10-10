@@ -22,7 +22,7 @@ public class Sheet {
 
     private static Sheets sheet;
     private static String ApplicationName = "Extract-data-from-sheet";
-    // private static String SheetId = "1jNX0daEEoKcAkUi0NwmEibIHOoryOzozfSak2n89ymQ";// chnages the varibale
+    private static String SheetId = "1jNX0daEEoKcAkUi0NwmEibIHOoryOzozfSak2n89ymQ";// chnages the varibale
 
     private static Credential authorize() throws IOException, GeneralSecurityException {
         InputStream in = Sheet.class.getResourceAsStream("/credentialss.json");
@@ -51,7 +51,7 @@ public class Sheet {
         sheet = getSheetService();
         //String range = "Blogs-Q3-AMJ-2022";
         ValueRange response = sheet.spreadsheets().values()
-                .get("1jNX0daEEoKcAkUi0NwmEibIHOoryOzozfSak2n89ymQ", "Blogs-Q3-AMJ-2022")
+                .get(SheetId, "Blogs-Q3-AMJ-2022")
                 .execute();
 
         List<List<Object>> values = response.getValues();
